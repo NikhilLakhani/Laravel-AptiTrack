@@ -76,8 +76,7 @@ class verifyuser extends Controller
         foreach($user as $temp)
         {
             $t=$temp->test_scores;
-            $b=$temp->ques_type_1;
-            $user1=DB::table('users1')->where('user_email',$req->email)->update(['test_scores'=>$t.",".$score,'ques_type_1'=>$b+6]);
+            $user1=DB::table('users1')->where('user_email',$req->email)->update(['test_scores'=>$t.",".$score]);
         }
         $user=DB::table('users1')->where('user_email',$req->email)->get();
         return view('progress',['ts'=>$user]);
